@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>元豚科技 | 云上DevOPS业务搭建 | K8S | 容器化部署 | CI/CD</title><meta name="keywords" content="K8S,Jenkins,GitLab,持续集成,k8s服务部署,Pipeline流水线,cicd流水线搭建,容器化部署,容器集群最佳实践"><meta name="description" content="元豚科技是一家云原生的基础服务构建提供商,提供SaaS/PaaS化的云上服务搭建、集群构建、业务发布、辅助决策等产品,帮助企业快速构建云上服务和流水线,同时也为企业提供解决方案和咨询服务,开发集成,希望帮助企业用最低成本实现云上业务的搭建,实现自主可控、可灵活变化的研发体系,同时降低50%以上云使用成本,提升研发效率和工程质量。"><link rel="icon" href="/favicon.ico"><style>body > a {
+        display: none;
+      }
+      .first-loading-wrp {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: 420px;
+        height: 100%;
+      }
+      .first-loading-wrp .logo {
+        margin-top: 30px;
+        width: 200px;
+        height: 200px;
+      }
+      .first-loading-wrp > h1 {
+        font-size: 128px;
+      }
+      .first-loading-wrp .loading-wrp {
+        padding: 98px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .dot {
+        animation: antRotate 1.2s infinite linear;
+        transform: rotate(45deg);
+        position: relative;
+        display: inline-block;
+        font-size: 32px;
+        width: 32px;
+        height: 32px;
+        box-sizing: border-box;
+      }
+      .dot i {
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        display: block;
+        background-color: #1890ff;
+        border-radius: 100%;
+        transform: scale(0.75);
+        transform-origin: 50% 50%;
+        opacity: 0.3;
+        animation: antSpinMove 1s infinite linear alternate;
+      }
+      .dot i:nth-child(1) {
+        top: 0;
+        left: 0;
+      }
+      .dot i:nth-child(2) {
+        top: 0;
+        right: 0;
+        -webkit-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+      }
+      .dot i:nth-child(3) {
+        right: 0;
+        bottom: 0;
+        -webkit-animation-delay: 0.8s;
+        animation-delay: 0.8s;
+      }
+      .dot i:nth-child(4) {
+        bottom: 0;
+        left: 0;
+        -webkit-animation-delay: 1.2s;
+        animation-delay: 1.2s;
+      }
+      @keyframes antRotate {
+        to {
+          -webkit-transform: rotate(405deg);
+          transform: rotate(405deg);
+        }
+      }
+      @-webkit-keyframes antRotate {
+        to {
+          -webkit-transform: rotate(405deg);
+          transform: rotate(405deg);
+        }
+      }
+      @keyframes antSpinMove {
+        to {
+          opacity: 1;
+        }
+      }
+      @-webkit-keyframes antSpinMove {
+        to {
+          opacity: 1;
+        }
+      }</style><link href="/static/css/chunk-02ef4eac.824484de.css" rel="prefetch"><link href="/static/css/chunk-4dba30a6.023b4bed.css" rel="prefetch"><link href="/static/css/chunk-742fb059.b4ae666f.css" rel="prefetch"><link href="/static/css/chunk-7569ddfc.38342da3.css" rel="prefetch"><link href="/static/css/chunk-790881fa.f422e5c8.css" rel="prefetch"><link href="/static/css/chunk-a18a73a0.99f7859e.css" rel="prefetch"><link href="/static/js/chunk-02ef4eac.aee09342.js" rel="prefetch"><link href="/static/js/chunk-1f4107c2.459db410.js" rel="prefetch"><link href="/static/js/chunk-2d0b309a.29dd3cb6.js" rel="prefetch"><link href="/static/js/chunk-4dba30a6.b9bc7940.js" rel="prefetch"><link href="/static/js/chunk-742fb059.806e3b5f.js" rel="prefetch"><link href="/static/js/chunk-7569ddfc.e0dd8f6a.js" rel="prefetch"><link href="/static/js/chunk-790881fa.81dd5b3c.js" rel="prefetch"><link href="/static/js/chunk-a18a73a0.d127da0b.js" rel="prefetch"><link href="/static/js/lang-en-US.cd0544be.js" rel="prefetch"><link href="/static/css/app.3c8d8b2c.css" rel="preload" as="style"><link href="/static/css/chunk-antd.eb03cbba.css" rel="preload" as="style"><link href="/static/js/app.ac064b66.js" rel="preload" as="script"><link href="/static/js/chunk-antd.6c694034.js" rel="preload" as="script"><link href="/static/js/chunk-libs.579eae3f.js" rel="preload" as="script"><link href="/static/css/chunk-antd.eb03cbba.css" rel="stylesheet"><link href="/static/css/app.3c8d8b2c.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but 元豚科技 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"><div class="first-loading-wrp"><h1><img class="logo" src="/logo.png"></h1><h4>海豚工程 专注企业效率提速服务</h4><div class="loading-wrp"><span class="dot dot-spin"><i></i><i></i><i></i><i></i></span></div><div style="display: flex; justify-content: center; align-items: center">海豚工程</div></div></div><script src="https://v1.cnzz.com/z_stat.php?id=1280760724&web_id=1280760724"></script><script src="/static/js/chunk-antd.6c694034.js"></script><script src="/static/js/chunk-libs.579eae3f.js"></script><script src="/static/js/app.ac064b66.js"></script></body></html>
